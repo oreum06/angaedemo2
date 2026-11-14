@@ -17,10 +17,25 @@
 - 모든 인물은 알파 영역 기준으로 발끝 기준선을 맞추고, 시트의 신장 비율(포미 162 / 소렌 172 / 카루비야 150 / 딱따구리 175, 마루는 158로 가정)로 크기를 맞춤.
 - 표정은 대사 내용으로 자동 선택하고, 핵심 장면은 `staging.json`의 `expr`로 직접 지정. 연출로 지정한 포즈(바구니 든 할머니 등)는 다음 지시가 나올 때까지 유지.
 
-## 배경
-- `village_entrance`(S02)와 `village_bus_stop`(S11)은 사용자가 준 마을 이미지를 함께 사용함. 버스 정류장과 벤치가 그려져 있어서 정류장 장면에도 맞음.
-- 나머지 7곳은 이미지가 없어 **시간대별 그라데이션 임시 배경**으로 표시하고, 화면 왼쪽 위에 "임시 배경 · ○○ 이미지 미제공"을 띄움: 버스 안, 할머니 댁, 빵집, 나무 다리, 모임 준비터, 목공 작업장, 밤 광장.
-- 늦은 오후·저녁·밤에는 배경과 인물에 같은 색 보정을 줘서 조명을 맞춤.
+## 배경 (2026-11-15 추가분 반영, 9곳 모두 실제 이미지)
+| 키 | 파일 | 원본 |
+|---|---|---|
+| bus_interior (S01) | bg_bus_interior.jpg | 노을 버스 실내 |
+| village_entrance (S02) | bg_village_day.png | 최초 제공 마을 이미지 |
+| grandma_house (S03) | bg_grandma_house.jpg | 감 걸린 한옥 마당 |
+| bakery (S04–05) | bg_bakery.jpg | 빵집 실내 |
+| wooden_bridge (S06) | bg_wooden_bridge.jpg | 단풍 시냇가 나무 다리 |
+| festival_prep (S07) | bg_festival_prep.jpg | 4분할 시트 왼쪽 위 (낮 광장) |
+| carpenter_workshop (S08–09) | bg_carpenter_workshop.jpg | 4분할 시트 오른쪽 위 |
+| festival_night (S10) | bg_festival_night.jpg | 4분할 시트 왼쪽 아래 (모서리 글자 피해서 자름) |
+| village_bus_stop (S11) | bg_village_bus_stop.jpg | 단풍길 버스 정류장 |
+- 모두 16:9로 가운데 기준 잘라냄(늘이지 않음). 자르기는 `tools/bg_export.html` + `tools/save_server.py`(개발용).
+- 미사용: 토끼가 있는 판타지 다리, 수채화 깃발 골목, 새집 공방, 시트의 두 번째 버스 실내 — 화풍이나 장면 조명이 다른 배경과 덜 맞아서 제외.
+- 버스 실내·밤 광장은 그림 자체가 노을·등불 조명이라 시간대 오버레이를 끔.
+
+## 배포
+- https://github.com/oreum06/angaedemo2 의 `vn/` 폴더 → https://oreum06.github.io/angaedemo2/vn/
+- 저장소 루트의 기존 Godot 웹 빌드는 그대로 둠.
 
 ## 실행
 ```
@@ -44,7 +59,7 @@ python -m http.server 8765 --bind 127.0.0.1
 - Godot 빌드(웹 런타임으로 대체 중).
 
 ## 누락 에셋
-- 배경 7장: bus_interior, grandma_house, bakery, wooden_bridge, festival_prep, carpenter_workshop, festival_night
+- 배경: 없음 (9곳 모두 반영)
 - 소품 CG: 감 바구니, 빨간 사진 상자, 동물 모양 빵, 나무 딱따구리(실패작·수리 후). 지금은 지문 캡션으로만 표현
 - BGM 9개, SFX 7개
 - 미로: 이번 스토리에 등장하지 않음
