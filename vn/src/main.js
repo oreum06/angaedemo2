@@ -15,7 +15,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
 
 // ---------- stage scaling ----------
 const stage = $('#stage');
-const fit = () => { stage.style.transform = `scale(${Math.min(innerWidth / 1920, innerHeight / 1080)})`; };
+const fit = () => { stage.style.transform = `translate(-50%, -50%) scale(${Math.min(innerWidth / 1920, innerHeight / 1080)})`; };
 addEventListener('resize', fit); fit();
 if (STILL) document.body.classList.add('still');
 

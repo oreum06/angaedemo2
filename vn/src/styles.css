@@ -25,8 +25,10 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 .hidden { display: none !important; }
 
-#frame { position: fixed; inset: 0; display: grid; place-items: center; }
-#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; transform-origin: center; outline: none; background: var(--paper); }
+/* the stage keeps its 1920×1080 layout box even when scaled, so centre it explicitly
+   (grid centring pushed the oversized box right/down and clipped it on smaller windows) */
+#frame { position: fixed; inset: 0; overflow: hidden; }
+#stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; overflow: hidden; transform-origin: center; transform: translate(-50%, -50%); outline: none; background: var(--paper); }
 .screen { position: absolute; inset: 0; }
 .bg { position: absolute; inset: 0; background: center / cover no-repeat; }
 
