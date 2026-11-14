@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "start": "act1_open",
+  "nodes": [
+    {"id":"act1_open","type":"scene","background":"village_entrance_day","bgm":"arrival","transition":"fade","next":"act1_pomi_01"},
+    {"id":"act1_pomi_01","type":"line","speaker":"포미","text":"너무 조용한데. 길을 잘못 든 건가?","portrait":"pomi_wary","next":"act1_pomi_02"},
+    {"id":"act1_pomi_02","type":"line","speaker":"포미의 생각","text":"낯선 사람이 돌아다니면 이상하게 보이려나.","portrait":"pomi_wary","next":"act1_fruit"},
+    {"id":"act1_fruit","type":"choice","prompt":"떨어진 과일과 낮잠 자는 주민이 보인다.","options":[
+      {"label":"주인을 깨워 물어본다","next":"act1_ask","set_flags":{"fruit_choice":"ask"}},
+      {"label":"조용히 주워 바구니에 넣는다","next":"act1_pick","set_flags":{"fruit_choice":"pick"}},
+      {"label":"오해받지 않도록 지나친다","next":"act1_pass","set_flags":{"fruit_choice":"pass"}}
+    ]},
+    {"id":"act1_ask","type":"line","speaker":"주민","text":"아, 내 거 맞아. 근데 나 지금 자고 있잖아. 네가 주워주든 말든 네 맘이지!","next":"act1_join"},
+    {"id":"act1_pick","type":"line","speaker":"주민","text":"오, 주워줬네? 고마워! 근데 내가 부탁한 건 아닌데. 너 원래 그런 거 좋아해?","next":"act1_join"},
+    {"id":"act1_pass","type":"line","speaker":"주민","text":"거기 지나가는 사람! 빵집 가는 길이면 내 것도 하나 사다 줄래? 싫으면 말고!","next":"act1_join"},
+    {"id":"act1_join","type":"line","speaker":"포미의 생각","text":"...이상하게 나를 평가하지 않네.","next":"sample_end"},
+    {"id":"sample_end","type":"end","ending_id":"sample_only"}
+  ],
+  "note": "ACT 1 엔진 검증용 예제. 전체 데모 스크립트가 아니며 이후 ACT 2~5 데이터 작성 필요."
+}
