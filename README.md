@@ -73,4 +73,4 @@ Godot 4.6.3 import 및 실행 성공. 최초 import에서 호스트 홈 경로 �
 
 Web export 설정은 `export_presets.cfg`에 있습니다. Godot 4.6.3 export templates를 설치한 뒤 `godot --headless --path . --export-release Web`으로 빌드합니다. 멀티스레드를 끄므로 별도 COOP/COEP 헤더가 필요하지 않습니다.
 
-정적 웹 빌드는 `gh-pages` 브랜치에 배포됩니다. GitHub 저장소 Settings → Pages → Deploy from a branch → `gh-pages` / `(root)` → Save로 활성화합니다. 예정 주소는 https://oreum06.github.io/angaedemo2/ 입니다. Pages 활성화 권한이 연결 앱에 없어 소유자의 설정 변경이 필요합니다.
+웹 빌드는 main 브랜치 루트에서 GitHub Pages로 제공됩니다. 실행 주소: https://oreum06.github.io/angaedemo2/
