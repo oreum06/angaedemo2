@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>안개골: 바람나침반</title>
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<div id="frame">
+  <div id="stage" tabindex="-1">
+
+    <!-- ===== TITLE ===== -->
+    <section id="title" class="screen">
+      <div class="bg kenburns" style="background-image:url(assets/backgrounds/bg_village_day.png)"></div>
+      <div class="title-wash"></div>
+      <div class="title-block">
+        <p class="eyebrow">A Visual Novel</p>
+        <h1 class="logo">
+          <span class="logo-main">안개골</span>
+          <span class="logo-sub"><i></i>바람나침반<i></i></span>
+        </h1>
+        <nav class="title-menu" aria-label="타이틀 메뉴">
+          <button data-act="new">새 게임</button>
+          <button data-act="continue">이어하기</button>
+          <button data-act="settings">설정</button>
+          <button data-act="quit">종료</button>
+        </nav>
+      </div>
+      <svg class="compass-mark" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".55"/>
+        <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".8" opacity=".35"/>
+        <g opacity=".5" stroke="currentColor" stroke-width="1">
+          <line x1="60" y1="2" x2="60" y2="12"/><line x1="60" y1="108" x2="60" y2="118"/>
+          <line x1="2" y1="60" x2="12" y2="60"/><line x1="108" y1="60" x2="118" y2="60"/>
+        </g>
+        <g class="needle">
+          <path d="M60 18 L66 60 L60 66 L54 60 Z" fill="currentColor"/>
+          <path d="M60 102 L66 60 L60 54 L54 60 Z" fill="currentColor" opacity=".35"/>
+        </g>
+        <circle cx="60" cy="60" r="3" fill="currentColor"/>
+      </svg>
+      <footer class="title-foot">
+        <span>Demo · 11장면</span>
+        <span class="keys"><kbd>↑</kbd><kbd>↓</kbd> 이동 &nbsp; <kbd>Enter</kbd> 선택</span>
+      </footer>
+    </section>
+
+    <!-- ===== VN ===== -->
+    <section id="vn" class="screen hidden">
+      <div class="bg-layer"><div class="bg" id="bgA"></div><div class="bg" id="bgB"></div></div>
+      <div class="tint" id="tint"></div>
+      <div class="chars" id="chars"></div>
+
+      <!-- prop overlays driven by stage beats -->
+      <div class="phone hidden" id="phone" aria-label="휴대전화">
+        <div class="phone-top"><span>9:41</span><span class="notch"></span><span>●●●</span></div>
+        <div class="phone-body"></div>
+      </div>
+      <div class="compass-view hidden" id="compassView" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <radialGradient id="brass" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#F3D9A0"/><stop offset=".55" stop-color="#C99A55"/><stop offset="1" stop-color="#8A6232"/></radialGradient>
+            <radialGradient id="face" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#FBF4E6"/><stop offset="1" stop-color="#E9D9BE"/></radialGradient>
+          </defs>
+          <circle cx="100" cy="100" r="92" fill="url(#brass)"/>
+          <circle cx="100" cy="100" r="80" fill="url(#face)" stroke="#8A6232" stroke-width="1.5"/>
+          <g stroke="#8A6551" stroke-width="1.2" opacity=".7">
+            <line x1="100" y1="24" x2="100" y2="36"/><line x1="100" y1="164" x2="100" y2="176"/>
+            <line x1="24" y1="100" x2="36" y2="100"/><line x1="164" y1="100" x2="176" y2="100"/>
+          </g>
+          <g font-family="Noto Serif KR, serif" font-size="13" fill="#6E5D51" text-anchor="middle">
+            <text x="100" y="52">N</text><text x="100" y="158">S</text><text x="152" y="105">E</text><text x="48" y="105">W</text>
+          </g>
+          <g class="needle">
+            <path d="M100 40 L108 100 L100 108 L92 100 Z" fill="#B5523B"/>
+            <path d="M100 160 L108 100 L100 92 L92 100 Z" fill="#6E5D51"/>
+          </g>
+          <circle cx="100" cy="100" r="5" fill="#C99A55" stroke="#8A6232"/>
+        </svg>
+      </div>
+
+      <div class="ui" id="ui">
+        <div class="loc" id="loc"><span class="loc-dot"></span><span id="locText"></span></div>
+        <div class="temp-note hidden" id="tempNote"></div>
+
+        <nav class="chrome" aria-label="게임 메뉴">
+          <button data-act="log" title="대사 기록 (L)">기록</button>
+          <button data-act="auto" title="자동 진행 (A)">자동</button>
+          <button data-act="skip" title="읽은 글 스킵 (S)">스킵</button>
+          <button data-act="save" title="저장">저장</button>
+          <button data-act="settings" title="설정 (Esc)">설정</button>
+          <span class="sep"></span>
+          <button data-act="hide" title="UI 숨기기 (H)">숨기기</button>
+        </nav>
+
+        <div class="choices hidden" id="choices" role="listbox"></div>
+
+        <div class="panel" id="panel">
+          <div class="tag" id="tag"></div>
+          <p class="text" id="text"><span class="shown"></span><span class="rest"></span></p>
+          <span class="next" id="next" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="chapter hidden" id="chapter">
+        <span class="ch-time"></span>
+        <span class="ch-name"></span>
+        <span class="ch-title"></span>
+      </div>
+      <div class="end-card hidden" id="endCard">
+        <span class="end-title"></span>
+        <span class="end-line"></span>
+        <span class="end-mark"></span>
+        <span class="end-hint">클릭하여 타이틀로</span>
+      </div>
+
+      <div class="hint hidden" id="hideHint">H 또는 클릭으로 UI 다시 보기</div>
+    </section>
+    <div class="toast hidden" id="toast"></div>
+
+    <!-- ===== OVERLAYS ===== -->
+    <section class="overlay hidden" id="logOverlay" aria-label="대사 기록">
+      <div class="sheet">
+        <header><h2>대사 기록</h2><button class="x" data-close>닫기</button></header>
+        <div class="log-list" id="logList"></div>
+      </div>
+    </section>
+
+    <section class="overlay hidden" id="setOverlay" aria-label="설정">
+      <div class="sheet narrow">
+        <header><h2>설정</h2><button class="x" data-close>닫기</button></header>
+        <div class="rows">
+          <label class="row"><span>텍스트 속도</span><input type="range" id="optSpeed" min="15" max="90" step="5"><output id="optSpeedOut"></output></label>
+          <label class="row"><span>자동 진행 대기</span><input type="range" id="optAuto" min="0.5" max="3" step="0.25"><output id="optAutoOut"></output></label>
+          <label class="row"><span>배경음</span><input type="range" id="optBgm" min="0" max="100" step="5"><output id="optBgmOut"></output></label>
+          <label class="row"><span>효과음</span><input type="range" id="optSfx" min="0" max="100" step="5"><output id="optSfxOut"></output></label>
+          <div class="row"><span>화면</span><button class="pill" id="optFull">전체 화면 전환</button></div>
+        </div>
+        <footer class="sheet-foot" id="setFoot"><button class="pill ghost" id="toTitle">타이틀로 돌아가기</button></footer>
+      </div>
+    </section>
+
+    <div class="fader" id="fader"></div>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

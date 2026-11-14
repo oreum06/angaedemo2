@@ -1,0 +1,240 @@
+{
+  "schema_version": 2,
+  "note": "Central asset manifest. Logical keys match data/story/asset_manifest.json. Missing backgrounds render a themed placeholder; missing portraits render a labeled silhouette.",
+  "time_of_day": {
+    "late_afternoon": "늦은 오후",
+    "morning": "아침",
+    "morning_next_day": "아침",
+    "afternoon": "오후",
+    "evening": "저녁",
+    "night": "밤"
+  },
+  "backgrounds": {
+    "bus_interior": {
+      "label": "시골 버스 안",
+      "placeholder": "dusk",
+      "file": "assets/backgrounds/bg_bus_interior.jpg",
+      "grade": "none"
+    },
+    "village_entrance": {
+      "file": "assets/backgrounds/bg_village_day.png",
+      "label": "안개골 · 마을 입구"
+    },
+    "grandma_house": {
+      "label": "카루비야 할머니 댁",
+      "placeholder": "home",
+      "file": "assets/backgrounds/bg_grandma_house.jpg"
+    },
+    "bakery": {
+      "label": "마루의 빵집",
+      "placeholder": "bakery",
+      "file": "assets/backgrounds/bg_bakery.jpg"
+    },
+    "wooden_bridge": {
+      "label": "시냇가 나무 다리",
+      "placeholder": "bridge",
+      "file": "assets/backgrounds/bg_wooden_bridge.jpg"
+    },
+    "festival_prep": {
+      "label": "가을 모임 준비터",
+      "placeholder": "prep",
+      "file": "assets/backgrounds/bg_festival_prep.jpg"
+    },
+    "carpenter_workshop": {
+      "label": "목공 작업장",
+      "placeholder": "workshop",
+      "file": "assets/backgrounds/bg_carpenter_workshop.jpg"
+    },
+    "festival_night": {
+      "label": "가을 모임 광장",
+      "placeholder": "night",
+      "file": "assets/backgrounds/bg_festival_night.jpg",
+      "grade": "none"
+    },
+    "village_bus_stop": {
+      "file": "assets/backgrounds/bg_village_bus_stop.jpg",
+      "label": "안개골 · 정류장"
+    }
+  },
+  "stage": {
+    "baseline": 1450,
+    "pxPerCm": 7.5,
+    "positions": {
+      "left": 600,
+      "right": 1330,
+      "center": 960
+    }
+  },
+  "characters": {
+    "pomi": {
+      "name": "포미",
+      "speakers": [
+        "포미",
+        "포미(독백)"
+      ],
+      "heightCm": 162,
+      "default": "observe",
+      "portraits": {
+        "observe": {
+          "file": "assets/portraits/pomi/observe.png"
+        },
+        "smile": {
+          "file": "assets/portraits/pomi/smile.png"
+        },
+        "greet": {
+          "file": "assets/portraits/pomi/greet.png"
+        },
+        "puzzled": {
+          "file": "assets/portraits/pomi/puzzled.png"
+        },
+        "surprised": {
+          "file": "assets/portraits/pomi/surprised.png"
+        },
+        "wary": {
+          "file": "assets/portraits/pomi/wary.png"
+        }
+      }
+    },
+    "maru": {
+      "name": "마루",
+      "speakers": [
+        "마루"
+      ],
+      "heightCm": 158,
+      "default": "neutral",
+      "portraits": {
+        "neutral": {
+          "file": "assets/portraits/maru/neutral.png"
+        },
+        "welcome": {
+          "file": "assets/portraits/maru/welcome.png"
+        },
+        "offer_bread": {
+          "file": "assets/portraits/maru/offer_bread.png"
+        },
+        "cafe": {
+          "file": "assets/portraits/maru/cafe.png"
+        }
+      }
+    },
+    "soren": {
+      "name": "소렌",
+      "speakers": [
+        "소렌"
+      ],
+      "heightCm": 172,
+      "default": "casual",
+      "note": "Only the six full-bodies wearing the official base outfit (sheet v2) are used; outfit variants are excluded for consistency.",
+      "portraits": {
+        "casual": {
+          "file": "assets/portraits/soren/casual.png"
+        },
+        "casual_laugh": {
+          "file": "assets/portraits/soren/casual_laugh.png"
+        },
+        "bright_laugh": {
+          "file": "assets/portraits/soren/bright_laugh.png"
+        },
+        "wave": {
+          "file": "assets/portraits/soren/wave.png"
+        },
+        "reach_out": {
+          "file": "assets/portraits/soren/reach_out.png"
+        },
+        "crossbody": {
+          "file": "assets/portraits/soren/crossbody.png"
+        }
+      }
+    },
+    "karuviya": {
+      "name": "카루비야",
+      "speakers": [
+        "카루비야"
+      ],
+      "heightCm": 150,
+      "default": "laugh",
+      "note": "Cut at runtime from 03_따뜻한_포즈_시트 (white background, matches sheet v2). open_arms.png is excluded: dark halo in its alpha and glasses not in sheet v2.",
+      "portraits": {
+        "laugh": {
+          "source": "sheet",
+          "sheet": "assets/portraits/karuviya/_posesheet_b.png",
+          "rect": [
+            20,
+            0,
+            535,
+            887
+          ],
+          "scale": 1,
+          "flood": 22,
+          "soft": 60
+        },
+        "think": {
+          "source": "sheet",
+          "sheet": "assets/portraits/karuviya/_posesheet_b.png",
+          "rect": [
+            545,
+            0,
+            330,
+            887
+          ],
+          "scale": 1,
+          "flood": 22,
+          "soft": 60
+        },
+        "tea": {
+          "source": "sheet",
+          "sheet": "assets/portraits/karuviya/_posesheet_b.png",
+          "rect": [
+            915,
+            0,
+            340,
+            887
+          ],
+          "scale": 1,
+          "flood": 22,
+          "soft": 60
+        },
+        "basket": {
+          "source": "sheet",
+          "sheet": "assets/portraits/karuviya/_posesheet_b.png",
+          "rect": [
+            1265,
+            0,
+            505,
+            887
+          ],
+          "scale": 1,
+          "flood": 22,
+          "soft": 60
+        }
+      }
+    },
+    "woodpecker": {
+      "name": "딱따구리 아저씨",
+      "speakers": [
+        "딱따구리 아저씨"
+      ],
+      "heightCm": 175,
+      "default": "thinking",
+      "portraits": {
+        "thinking": {
+          "file": "assets/portraits/woodpecker/thinking.png"
+        },
+        "proud_laugh": {
+          "file": "assets/portraits/woodpecker/proud_laugh.png"
+        },
+        "open_arms": {
+          "file": "assets/portraits/woodpecker/open_arms.png"
+        },
+        "birdhouse_walk": {
+          "file": "assets/portraits/woodpecker/birdhouse_walk.png"
+        }
+      }
+    }
+  },
+  "offscreen_speakers": [
+    "버스 기사",
+    "아이",
+    "주민"
+  ]
+}

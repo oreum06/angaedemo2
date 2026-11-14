@@ -1,0 +1,107 @@
+{
+  "version": "1.0",
+  "policy": "Logical keys only. Bind to existing local project asset filenames. Do not generate/replace established character sprites automatically.",
+  "backgrounds": {
+    "bus_interior": {
+      "path": null,
+      "description": "시골 버스 내부·늦은 오후"
+    },
+    "village_entrance": {
+      "path": null,
+      "description": "안개골 마을 입구·정류장"
+    },
+    "grandma_house": {
+      "path": null,
+      "description": "카루비야의 아늑한 집"
+    },
+    "bakery": {
+      "path": null,
+      "description": "마루의 빵집 내부"
+    },
+    "wooden_bridge": {
+      "path": null,
+      "description": "시냇가 나무 다리"
+    },
+    "festival_prep": {
+      "path": null,
+      "description": "가을 모임 장식 준비터"
+    },
+    "carpenter_workshop": {
+      "path": null,
+      "description": "목공 작업장"
+    },
+    "festival_night": {
+      "path": null,
+      "description": "가을 모임 광장·저녁"
+    },
+    "village_bus_stop": {
+      "path": null,
+      "description": "마을 정류장·아침"
+    }
+  },
+  "characters": {
+    "포미": {
+      "sprite": null,
+      "notes": "20대 중반, 트렌치코트, 긴장되고 사무적인 말투"
+    },
+    "카루비야": {
+      "sprite": null,
+      "notes": "활동적 할머니, 스카프, 동그랗고 부드러운 헤어"
+    },
+    "마루": {
+      "sprite": null,
+      "notes": "28세 사랑둥이 빵집 주인, 베레모·앞치마, 애교"
+    },
+    "소렌": {
+      "sprite": null,
+      "notes": "기존 마을 청년, 자유롭고 호기심 많은 청춘"
+    },
+    "딱따구리 아저씨": {
+      "sprite": null,
+      "notes": "무뚝뚝한 목공 장인"
+    },
+    "아이": {
+      "sprite": null,
+      "notes": "화면 밖 음성만 가능"
+    },
+    "주민": {
+      "sprite": null,
+      "notes": "화면 밖 음성만 가능"
+    },
+    "버스 기사": {
+      "sprite": null,
+      "notes": "화면 밖 음성만 가능"
+    }
+  },
+  "props": [
+    "황동 바람나침반",
+    "포미 휴대전화 UI",
+    "감 바구니와 주전자",
+    "빨간 사진 상자",
+    "귀여운 동물 모양 빵",
+    "낙엽/나뭇가지 장식",
+    "실패작 나무 딱따구리",
+    "날개를 고친 딱따구리"
+  ],
+  "audio_cues": [
+    "quiet_bus",
+    "warm_village",
+    "cozy_home",
+    "bakery_playful",
+    "daytime_wander",
+    "woodwork_light",
+    "workshop",
+    "warm_festival",
+    "ending_soft"
+  ],
+  "sfx": [
+    "bus_ambience",
+    "door_bell",
+    "leaves",
+    "sawing",
+    "bird_fall",
+    "phone_ring",
+    "footsteps"
+  ],
+  "fallback": "If path is null, show themed gradient/placeholder and keep game playable."
+}
